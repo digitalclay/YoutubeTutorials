@@ -1,0 +1,8 @@
+  #####
+  #ud
+  if cmd=="-ud" and args != "":
+    url = urlreq.urlopen("http://www.urbandictionary.com/define.php?term="+args).read().decode()
+    stuff = url.split("<div class='meaning'>")[1]
+    stuff2 = stuff.split("</div>")[0]
+    stuff2 = stuff2.replace("\n", "")
+    sendMsg(args+" : "+stuff2)
